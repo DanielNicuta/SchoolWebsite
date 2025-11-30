@@ -1,0 +1,14 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.dll
+*.pdb
+*.db
+*.log
+node_modules/
+wwwroot/lib/
+wwwroot/dist/
+.env
