@@ -1,41 +1,75 @@
-# School Website — ASP.NET MVC (Clean Architecture)
+# 📘 SchoolWeb — Clean Architecture ASP.NET MVC Project
 
-A modern school website built using **ASP.NET MVC**, **Clean Architecture**, **SOLID Principles**, and **Domain-Driven Design**.
+A modular, extensible school website built using:
 
-## Features
-- Multi-page school website based on existing structure
-- Admin control panel (CMS-like)
-- Entity Framework Core + SQL Server
-- Repository & Unit of Work patterns
-- Services with Dependency Injection
-- Cookie banner (GDPR)
-- Fully responsive template
-- Extendable architecture for reuse in future projects
+- **ASP.NET 8 MVC**
+- **Clean Architecture**
+- **SOLID Principles**
+- **Repository + Service Pattern**
+- **Industry branching strategy**
+- **CI/CD with GitHub Actions**
+- **Reusable template for future projects**
 
-## Architecture Overview
+---
 
-### Why Clean Architecture?
-- Independent layers
-- Testable
-- Technology-agnostic
-- Easy to extend (other school websites, CMS, admin portals)
+## 🏛 Architecture Overview
 
-## SOLID Principles
-- **S – Single Responsibility:** Every class has only one reason to change  
-- **O – Open/Closed:** Services and controllers depend on abstractions  
-- **L – Liskov Substitution:** Interfaces used everywhere  
-- **I – Interface Segregation:** No big fat interfaces  
-- **D – Dependency Inversion:** DI container injects everything
 
-## Design Patterns Used
-- **Repository Pattern**
-- **Unit of Work**
-- **CQRS (optional, if you want to add later)**
-- **Factory Pattern (for mapping view models)**
-- **Strategy Pattern (optional for content rendering)**
+### 🔍 Why Clean Architecture?
+- UI is independent of the business logic  
+- Business logic is independent of infrastructure  
+- Easy to maintain, extend, and reuse  
+- Perfect for long-term projects and enterprise setups  
 
-## Future Enhancements
-- CMS Control Panel (Director can edit site)
-- Authentication & Role-based Access
-- Image Manager
-- Blog / News module
+---
+
+## 🧱 SOLID Principles Applied
+
+### **S — Single Responsibility**
+Each layer and each service handles exactly one responsibility.
+
+### **O — Open/Closed**
+Services and repositories can be extended without modifying core logic.
+
+### **L — Liskov Substitution**
+Interfaces allow switching implementations safely.
+
+### **I — Interface Segregation**
+Small, focused interfaces (e.g., `INewsRepository`, `IImageService`).
+
+### **D — Dependency Inversion**
+Domain/Application do not depend on Infrastructure — but the opposite.
+
+---
+
+## 🔥 Branching Strategy (Professional)
+
+### **Main Branches**
+| Branch | Description |
+|--------|-------------|
+| `main` | Stable production-ready code |
+| `develop` | Development integration branch |
+
+### **Feature Branch Naming Convention**
+
+
+### **Workflow**
+
+
+Everything goes through Pull Requests.
+
+---
+
+## 🚀 CI/CD (GitHub Actions)
+
+CI pipeline runs automatically on:
+
+- pushes to `develop`, `main`, or `develop-NM-*` branches  
+- all PRs into `develop` or `main`
+
+### Pipeline tasks:
+- Restore dependencies  
+- Build solution  
+- Run tests  
+- Publish build artifacts  
+

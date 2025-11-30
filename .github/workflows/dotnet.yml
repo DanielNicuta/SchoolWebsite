@@ -1,28 +1,36 @@
-name: Build & Test (.NET)
+name: .NET CI
 
 on:
   push:
-    branches: [ main, develop ]
+    branches:
+      - develop
+      - develop-**
   pull_request:
-    branches: [ main, develop ]
+    branches:
+      - develop
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout source
+        uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 8.0.x
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
 
-    - name: Restore dependencies
-      run: dotnet restore
+      - name: Restore dependencies
+        run: dotnet restore SchoolWeb.sln
 
-    - name: Build
-      run: dotnet build --no-restore --configuration Release
+      - name: Build solution
+        run: dotnet build SchoolWeb.sln --configuration Release --no-restore
 
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      - name: Run tests
+        run: dotnet test SchoolWeb.sln --no-build --verbosity normal
+
+      - name: Publish Web App
+        run: dotnet publish SchoolWeb.Web/SchoolWeb.Web.csproj -c Release -o publish/
