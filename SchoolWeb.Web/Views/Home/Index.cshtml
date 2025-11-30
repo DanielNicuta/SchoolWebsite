@@ -1,0 +1,145 @@
+﻿@{
+  ViewData["Title"] = "Școala Gimnazială Crețeni - Vâlcea";
+  ViewData["BodyClass"] = "index-page";
+}
+<!-- Hero -->
+<section id="hero" class="hero section dark-background">
+  <img src="~/assets/img/hero-bg.jpg" alt="" data-aos="fade-in" asp-append-version="true">
+  <div class="container">
+    <h2 data-aos="fade-up" data-aos-delay="100">Învățăm azi,<br>Conducem mâine</h2>
+    <p data-aos="fade-up" data-aos-delay="200">Comunitate, educație și performanță la Școala Gimnazială Crețeni.</p>
+    <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+      <a asp-controller="Noutati" asp-action="Index" class="btn-get-started">Vezi noutăți</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about section">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+        <img src="~/assets/img/about.jpg" class="img-fluid" alt="" asp-append-version="true">
+      </div>
+      <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+        <h3>Despre școala noastră</h3>
+        <p class="fst-italic">
+          O școală modernă, orientată spre performanță, cu cadre didactice dedicate și elevi pregătiți pentru viitor.
+        </p>
+        <ul>
+          <li><i class="bi bi-check-circle"></i> <span>Rezultate bune și proiecte educaționale.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Comunitate implicată și susținere din partea părinților.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Resurse și dotări în continuă modernizare.</span></li>
+        </ul>
+        <a asp-controller="Pages" asp-action="Istoric" class="read-more"><span>Află mai mult</span><i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Counts -->
+<section id="counts" class="section counts light-background">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Elevi</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Profesori</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Proiecte</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Parteneriate</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features (quick links) -->
+<section id="features" class="features section">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="features-item">
+          <i class="bi bi-mortarboard" style="color:#e80368;"></i>
+          <h3><a asp-controller="Pages" asp-action="Misiunea" class="stretched-link">Misiunea</a></h3>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="features-item">
+          <i class="bi bi-people" style="color:#5578ff;"></i>
+          <h3><a asp-controller="Profesori" asp-action="CorpulProfesoral" class="stretched-link">Profesori</a></h3>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="features-item">
+          <i class="bi bi-calendar-event" style="color:#ff5828;"></i>
+          <h3><a asp-controller="Noutati" asp-action="Index" class="stretched-link">Noutăți & Evenimente</a></h3>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="features-item">
+          <i class="bi bi-geo-alt" style="color:#29cc61;"></i>
+          <h3><a asp-controller="Pages" asp-action="Contact" class="stretched-link">Contact</a></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teachers teaser (uses trainers images so it looks right) -->
+<section id="trainers-index" class="section trainers-index">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+        <div class="member">
+          <img src="~/assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="" asp-append-version="true">
+          <div class="member-content">
+            <h4>Profesor exemplu</h4>
+            <span>Limba română</span>
+            <p>Descriere scurtă…</p>
+            <div class="social">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+        <div class="member">
+          <img src="~/assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="" asp-append-version="true">
+          <div class="member-content">
+            <h4>Profesor exemplu</h4>
+            <span>Matematică</span>
+            <p>Descriere scurtă…</p>
+            <div class="social"><a href="#"><i class="bi bi-facebook"></i></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+        <div class="member">
+          <img src="~/assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="" asp-append-version="true">
+          <div class="member-content">
+            <h4>Profesor exemplu</h4>
+            <span>Științe</span>
+            <p>Descriere scurtă…</p>
+            <div class="social"><a href="#"><i class="bi bi-facebook"></i></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

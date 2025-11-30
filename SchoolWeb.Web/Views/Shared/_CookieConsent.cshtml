@@ -1,0 +1,16 @@
+<div id="cookie-banner" class="cookie-banner">
+  <p>
+    Folosim cookie-uri pentru a îmbunătăți experiența utilizatorilor.
+    <button id="accept-cookies" class="btn btn-primary btn-sm ms-2">Accept</button>
+  </p>
+</div>
+
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const accepted = localStorage.getItem("cookiesAccepted");
+  if (!accepted) banner.style.display = "block";
+  document.getElementById("accept-cookies").addEventListener("click", () => {
+    localStorage.setItem("cookiesAccepted", true);
+    banner.style.display = "none";
+  });
+</script>
