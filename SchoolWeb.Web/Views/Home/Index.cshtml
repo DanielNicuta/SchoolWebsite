@@ -4,38 +4,69 @@
 }
 <!-- Hero -->
 <section id="hero" class="hero section dark-background">
-  <img src="~/assets/img/hero-bg.jpg" alt="" data-aos="fade-in" asp-append-version="true">
+  @{
+    var heroImg = string.IsNullOrWhiteSpace(Model?.HeroImageUrl)
+        ? Url.Content("~/assets/img/hero-bg.jpg")
+        : Model!.HeroImageUrl!;
+  }
+  <img src="@heroImg" alt="" data-aos="fade-in" asp-append-version="true">
+
   <div class="container">
-    <h2 data-aos="fade-up" data-aos-delay="100">Învățăm azi,<br>Conducem mâine</h2>
-    <p data-aos="fade-up" data-aos-delay="200">Comunitate, educație și performanță la Școala Gimnazială Crețeni.</p>
+    <h2 data-aos="fade-up" data-aos-delay="100">
+      @(Model?.HeroTitle ?? "Învățăm azi,<br>Conducem mâine")
+    </h2>
+
+    <p data-aos="fade-up" data-aos-delay="200">
+      @(Model?.HeroSubtitle ?? "Comunitate, educație și performanță la Școala Gimnazială Crețeni.")
+    </p>
+
     <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-      <a asp-controller="Noutati" asp-action="Index" class="btn-get-started">Vezi noutăți</a>
+      @{
+        var btnText = string.IsNullOrWhiteSpace(Model?.HeroButtonText) ? "Vezi noutăți" : Model!.HeroButtonText!;
+        var btnUrl = string.IsNullOrWhiteSpace(Model?.HeroButtonUrl) ? Url.Action("Index", "Noutati") : Model!.HeroButtonUrl!;
+      }
+      <a href="@btnUrl" class="btn-get-started">@btnText</a>
     </div>
   </div>
 </section>
+
 
 <!-- About -->
 <section id="about" class="about section">
   <div class="container">
     <div class="row gy-4">
       <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-        <img src="~/assets/img/about.jpg" class="img-fluid" alt="" asp-append-version="true">
+        @{
+          var aboutImg = string.IsNullOrWhiteSpace(Model?.AboutImageUrl)
+              ? Url.Content("~/assets/img/about.jpg")
+              : Model!.AboutImageUrl!;
+        }
+        <img src="@aboutImg" class="img-fluid" alt="" asp-append-version="true">
       </div>
+
       <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
-        <h3>Despre școala noastră</h3>
-        <p class="fst-italic">
-          O școală modernă, orientată spre performanță, cu cadre didactice dedicate și elevi pregătiți pentru viitor.
-        </p>
-        <ul>
-          <li><i class="bi bi-check-circle"></i> <span>Rezultate bune și proiecte educaționale.</span></li>
-          <li><i class="bi bi-check-circle"></i> <span>Comunitate implicată și susținere din partea părinților.</span></li>
-          <li><i class="bi bi-check-circle"></i> <span>Resurse și dotări în continuă modernizare.</span></li>
-        </ul>
-        <a asp-controller="Pages" asp-action="Istoric" class="read-more"><span>Află mai mult</span><i class="bi bi-arrow-right"></i></a>
+        <h3>@(Model?.AboutTitle ?? "Despre școala noastră")</h3>
+
+        @if (!string.IsNullOrWhiteSpace(Model?.AboutSubtitle))
+        {
+          <p class="fst-italic">@Model!.AboutSubtitle</p>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model?.AboutHtml))
+        {
+          @Html.Raw(Model!.AboutHtml)
+        }
+        else
+        {
+          <p class="fst-italic">
+            O comunitate educațională orientată spre elev, dezvoltare și rezultate.
+          </p>
+        }
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- Counts -->
 <section id="counts" class="section counts light-background">

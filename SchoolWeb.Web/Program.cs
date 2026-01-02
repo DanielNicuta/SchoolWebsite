@@ -1,15 +1,24 @@
+using SchoolWeb.Application;
+using SchoolWeb.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();   // ✅ NOT WebApplication.Create(...)
+// Clean Architecture DI
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
+
+var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+
 app.UseHttpsRedirection();
-app.UseStaticFiles();        // ✅ required to serve wwwroot/*
+app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
